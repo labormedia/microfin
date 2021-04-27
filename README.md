@@ -17,7 +17,7 @@ Install dependencies, deploy redis and populate data.
 
 ```bash
 $ npm install
-$ npm redis
+$ npm run redis
 $ npm run populate
 ```
 
@@ -50,6 +50,7 @@ Open http://localhost:3001/api/v1 for information about the available data avail
 
 ## Examples
 
+Please activate the demo before using this links:<br /><br />
 <a href="http://localhost:3001/api/v1/BTCUSD">Períodos de tiempo disponible para BTCUSD.</a><br />
 <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/1">Un elemento de BTCUSD con fecha "1619049600000" (millis) y período 1d.</a><br />
 <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/10">10 elementos de BTCUSD precediendo 1619049600000.</a><br />
