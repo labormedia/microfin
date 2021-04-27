@@ -42,15 +42,29 @@ const toRedis = (pair, timeunit) => new Transform({
   }
 });
 
+const forLoading = 
+[{
+  "file": './data/bitcoin_historical.csv',
+  "pair": "BTCUSD",
+  "frame": "1d"
+},
+{
+  "file": './data/ethereum_historical.csv',
+  "pair": "ETHUSD",
+  "frame": "1d"
+}
+]
 
-// const writeStream = fs.createWriteStream('../data/parsed.json');
+function populate(list) {
+  redis.flushall()
+    list.forEach((element) => {
+      console.log("Writing:", element)
+      const readstream = fs.createReadStream(element.file)
+      readstream.pipe(transformer)
+        .pipe(toRedis(element.pair, element.frame))
+      readstream.on('close', () => redis.end(false))
+      delete readstream
+    }) 
+  }
 
-const file = process.argv[2] ? process.argv[2] : '../data/bitcoin_historical.csv'
-const argPair = process.argv[3] ? process.argv[3] : 'BTCUSD'
-const argFrame = process.argv[4] ? process.argv[4] : '1d'
-const readstream = fs.createReadStream(file)
-readstream.pipe(transformer)
-  .pipe(toRedis(argPair, argFrame))
-  // .pipe(writeStream)
-
-readstream.on('close', () => redis.end(false))
+populate(forLoading)

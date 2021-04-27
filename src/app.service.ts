@@ -73,7 +73,7 @@ export class AppService {
     </br> Please go to: <a href="http://localhost:3001/api/v1">http://localhost:3001/api/v1</a> 
     for details about this service.
     </br> Examples:
-    </br> <a href="http://localhost:3001/api/v1/BTCUSD">Tiempos disponible para BTCUSD.</a>
+    </br> <a href="http://localhost:3001/api/v1/BTCUSD">Períodos de tiempo disponible para BTCUSD.</a>
     </br> <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/1">Un elemento de BTCUSD con fecha "1619049600000" (millis) y período 1d.</a>
     </br> <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/10">10 elementos de BTCUSD precediendo 1619049600000.</a>
     </br> <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/100">100 elementos de BTCUSD precediendo 1619049600000.</a>
