@@ -65,7 +65,7 @@ Please activate the demo before using this links:<br /><br />
 
 ## Stay in touch
 
-- Author - [Diego Correa T.](https://labormedia.cl)
+- Author - [Diego Correa T.](http://labormedia.cl)
 
 ## License
 
