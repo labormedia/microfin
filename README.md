@@ -38,25 +38,40 @@ $ npm run start:prod
 
 Open http://localhost:3001/api/v1 for information about the available data available.
 
-"/api/v1/:pair": "Available timeframes for a pair.",
-"/api/v1/:pair/:frame": "Atomic elements available for a pair on a timeframe.",
-"/api/v1/:pair/:frame/:atom": "Data for an individual atom for a pair in a timeframe.",
-"/api/v1/:pair/:frame/:atom/:span": "Data for the $span preceding elements since an atom.",
-"/api/v1/:pair/:frame/:atom/:span/RSI": "RSI Technical Analysis for a Data Span.",
-"/api/v1/:pair/:frame/:atom/:span/AS": "Average Spread Technical Analysis for a Data Span.",
-"/api/v1/:pair/:frame/:atom/:span/STEMA": "Short Term EMA Technical Analysis for a Data Span.",
-"/api/v1/:pair/:frame/:atom/:span/LTEMA": "Long Term EMA Technical Analysis for a Data Span.",
-"/api/v1/:pair/:frame/:atom/:span/SMA": "Simple Moving Average Technical Analysis for a Data Span.",
+"/api/v1/:pair": "Available timeframes for a pair."
+
+"/api/v1/:pair/:frame": "Atomic elements available for a pair on a timeframe."
+
+"/api/v1/:pair/:frame/:atom": "Data for an individual atom for a pair in a timeframe."
+
+"/api/v1/:pair/:frame/:atom/:span": "Data for the $span preceding elements since an atom."
+
+"/api/v1/:pair/:frame/:atom/:span/RSI": "RSI Technical Analysis for a Data Span."
+
+"/api/v1/:pair/:frame/:atom/:span/AS": "Average Spread Technical Analysis for a Data Span."
+
+"/api/v1/:pair/:frame/:atom/:span/STEMA": "Short Term EMA Technical Analysis for a Data Span."
+
+"/api/v1/:pair/:frame/:atom/:span/LTEMA": "Long Term EMA Technical Analysis for a Data Span."
+
+"/api/v1/:pair/:frame/:atom/:span/SMA": "Simple Moving Average Technical Analysis for a Data Span."
+
 "/api/v1/:pair/:frame/:atom/:span/MACD": "Moving Average Convergence Divergence Technical Analysis for a Data Span."
 
 ## Examples
 
 <a href="http://localhost:3001/api/v1/BTCUSD">Períodos de tiempo disponible para BTCUSD.</a>
+
 <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/1">Un elemento de BTCUSD con fecha "1619049600000" (millis) y período 1d.</a>
+
 <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/10">10 elementos de BTCUSD precediendo 1619049600000.</a>
+
 <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/100">100 elementos de BTCUSD precediendo 1619049600000.</a>
+
 <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/100/RSI">RSI aplicado a 100 elementos de BTCUSD precediendo 1619049600000.</a>
+
 <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/100/STEMA">EMA de corto plazo aplicado a 100 elementos de BTCUSD precediendo 1619049600000.</a>
+
 <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/140/MACD">MACD aplicado a 140 elementos de BTCUSD precediendo 1619049600000.</a>
 
 ## TODO
