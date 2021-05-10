@@ -22,14 +22,21 @@ export class V1Controller {
 
     @Get(':pair')
     async getPair(@Param('pair') pair: string) {
-      const prom = this.V1Service.getPairService(pair)
-      return await prom
+      let dto = new V1Dto
+      dto.Pair = pair
+      let response = this.V1Service.validateDto(dto, false)
+        .then( async err => err.length > 0 ? err : this.V1Service.getPairService(pair) )
+      return await response
     }
 
     @Get(':pair/:frame')
     async getFrame(@Param('pair') pair: string, @Param('frame') frame: string): Promise<any> {
-      const prom = this.V1Service.getFrameService(pair,frame)
-      return await prom
+      let dto = new V1Dto
+      dto.Pair = pair
+      dto.Frame = frame
+      let response = this.V1Service.validateDto(dto, false)
+        .then( async err => err.length > 0 ? err : this.V1Service.getFrameService(pair,frame) )
+      return await response
     }
 
     @Get(':pair/:frame/:atom')
@@ -38,8 +45,15 @@ export class V1Controller {
       @Param('frame') frame: string,
       @Param('atom', ParseIntPipe) atom: Number,
       ): Promise<any> {
-        const prom = this.V1Service.getAtomSpanService(pair, frame, atom, 1)
-        return await prom
+        let dto = new V1Dto
+        dto.Pair = pair
+        dto.Frame = frame
+        dto.Atom = atom
+        // const prom = this.V1Service.getAtomSpanService(pair, frame, atom, 1)
+        // return await prom
+        let response = this.V1Service.validateDto(dto, false)
+          .then( async err => err.length > 0 ? err : this.V1Service.getAtomSpanService(pair, frame, atom, 1) )
+        return await response
       }
 
     @Get(':pair/:frame/:atom/:span')
@@ -48,8 +62,16 @@ export class V1Controller {
       @Param('frame') frame: string,
       @Param('atom', ParseIntPipe) atom: Number,
       @Param('span', ParseIntPipe) span: Number,): Promise<any> {
-        const prom = this.V1Service.getAtomSpanService(pair, frame, atom, span)
-        return await prom
+        let dto = new V1Dto
+        dto.Pair = pair
+        dto.Frame = frame
+        dto.Atom = atom
+        dto.Span = span
+        // const prom = this.V1Service.getAtomSpanService(pair, frame, atom, span)
+        // return await prom
+        let response = this.V1Service.validateDto(dto, false)
+          .then( async err => err.length > 0 ? err : this.V1Service.getAtomSpanService(pair, frame, atom, span) )
+        return await response
       }
 
     @Get(':pair/:frame/:atom/:span/:analysis')

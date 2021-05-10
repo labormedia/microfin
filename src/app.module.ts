@@ -19,8 +19,8 @@ import { V1Module } from './v1/v1.module';
     GraphQLModule.forRoot({
       autoSchemaFile: true,
       installSubscriptionHandlers: true,
-      // debug: false,
-      // playground: false,
+      debug: true,
+      playground: true,
     }),
     V1Module,
   ],

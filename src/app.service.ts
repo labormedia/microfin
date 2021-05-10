@@ -22,7 +22,7 @@ export class FinResolver {
 
   @Query(() => String)
   async getHistory(@Args('end') end: String, @Args('start') start: String): Promise<String> {
-    await this.client.send({ type: 'sum' }, Array.from({length:100}, (_,i) => i).toString()).toPromise();
+    // await this.client.send({ type: 'payload' }, Array.from({length:100}, (_,i) => i).toString()).toPromise();
     return [start,end].join(" ");
   }
 
@@ -38,9 +38,7 @@ export class FinResolver {
 
   @Subscription( returns => String, {
     name: 'assets',
-    // resolve: value => value,
     resolve(value) {
-      // "this" refers to an instance of "AuthorResolver"
       return value;
     }
   })
@@ -81,7 +79,7 @@ export class AppService {
     </br> <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/100/STEMA">EMA de corto plazo aplicado a 100 elementos de BTCUSD precediendo 1619049600000.</a>
     </br> <a href="http://localhost:3001/api/v1/BTCUSD/1d/1619049600000/140/MACD">MACD aplicado a 140 elementos de BTCUSD precediendo 1619049600000.</a>
     `
-    const response = await this.client.send({ type: 'payload' }, customeMessage).toPromise();
+    const response = await this.client.send({ type: 'payload' }, customeMessage ).toPromise();
     return response;
   }
 
